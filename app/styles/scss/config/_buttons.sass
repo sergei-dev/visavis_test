@@ -1,0 +1,24 @@
+@import 'config/vars'
+
+
+.btn
+  display: inline-block
+  height: 50px
+  font-size: 18px
+  line-height: 50px
+  font-weight: 700
+  padding: 0 95px
+  white-space: nowrap
+  color: $white
+  background: $blue
+  cursor: pointer
+  text-align: center
+  border-radius: 10px
+  transition: background-color .3s linear
+  touch-action: manipulation
+  text-decoration: none
+  font-family: 'Vodafone', sans-serif
+  &:hover
+    background-color: darken($blue, 15%)
+  +r(767)
+    padding: 0 30px

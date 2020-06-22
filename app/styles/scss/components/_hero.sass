@@ -1,0 +1,172 @@
+.hero
+    position: relative
+    padding-bottom: 184px
+    background: $section-bg
+    +r(1199)
+        padding-bottom: 80px
+    .container
+        position: static
+    &__top
+        padding-top: 290px
+        margin-bottom: 294px
+        +r(1199)
+            padding-top: 150px
+            margin-bottom: 180px
+        +r(1023)
+            padding-top: 200px
+            margin-bottom: 90px
+        +r(767)
+            min-height: 666px
+            display: flex
+            flex-direction: column
+            justify-content: flex-end
+            margin-bottom: 118px
+    &__title
+        position: relative
+        z-index: 4
+        padding-left: 130px
+        font-weight: 700
+        line-height: 0.9em
+        font-size: 180px
+        color: rgba(74, 77, 78, 0.8)
+        +r(1199)
+            font-size: 130px
+        +r(1023)
+            font-size: 90px
+        +r(767)
+            padding-left: 0
+            font-size: 82px
+    &__bg-wrap
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 2
+        width: 89.8%
+        height: 700px
+        +r(1199)
+            height: 450px
+        +r(1023)
+            height: 400px
+        +r(767)
+            height: 640px
+            width: 100%
+            display: none
+        &--mob
+            +r(767)
+                display: block
+    &__content
+        position: relative
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+        +r(1199)
+            flex-wrap: wrap
+            margin: -40px -20px
+            align-items: stretch
+        +r(767)
+            margin: -40px 0
+    &__item
+        margin-right: 110px
+        width: 100%
+        max-width: 490px
+        +r(1499)
+            margin-right: 60px
+        +r(1199)
+            margin: 0
+            padding: 40px 20px
+        +r(767)
+            padding: 40px 0
+        &--text-wrap
+            margin-right: 160px
+            +r(1499)
+                margin-right: 100px
+            +r(1299)
+                margin-right: 30px
+            +r(1199)
+                width: 50%
+                max-width: none
+                margin: 0
+            +r(767)
+                width: 100%
+        &--list
+            max-width: 280px
+            +r(1199)
+                max-width: none
+                width: 50%
+            +r(767)
+                width: 100%
+        &--bg
+            +r(1199)
+                max-width: none
+                width: 100%
+        &:last-child
+            margin-right: 0
+    &__subtitle
+        margin-bottom: 20px
+        font-size: 40px
+        font-weight: 700
+        line-height: 1.2em
+        +r(1023)
+            font-size: 30px
+    &__text
+        margin-bottom: 95px
+        font-size: 18px
+        font-weight: 300
+        line-height: 1.4em
+        +r(1199)
+            margin-bottom: 50px
+        +r(767)
+            margin-bottom: 54px
+            font-size: 16px
+    &__btn
+        +r(767)
+            width: 100%
+            max-width: 400px
+            margin: 0 auto
+    &__list-item
+        display: flex
+        align-items: center
+        font-size: 18px
+        font-weight: 700
+        margin-bottom: 40px
+        &:last-child
+            margin-bottom: 0
+        +r(767)
+            max-width: 264px
+            width: 100%
+            margin-left: auto
+            margin-right: auto
+    &__list-img-wrap
+        display: block
+        width: 100%
+        max-width: 54px
+        margin-right: 36px
+        +r(767)
+            margin-right: 20px
+    &__list-text
+        display: block
+        line-height: 1.3em
+        color: $text
+        font-size: inherit
+        font-weight: inherit
+    &__img-wrap
+        position: absolute
+        top: calc(50% + 72px)
+        right: 0
+        width: 100%
+        max-width: 490px
+        height: 680px
+        transform: translateY(-50%)
+        +r(1499)
+            max-width: 400px
+        +r(1199)
+            position: relative
+            top: auto
+            right: auto
+            transform: none
+            max-width: 600px
+            margin: 0 auto
+        +r(1023)
+            height: 400px
+        +r(767)
+            height: 460px
