@@ -1,0 +1,313 @@
+.about
+    padding-top: 240px
+    padding-bottom: 114px
+    +r(1299)
+        padding-top: 100px
+        padding-bottom: 80px
+    +r(1199)
+        position: relative
+    +r(767)
+        padding-top: 143px
+        padding-bottom: 69px
+    &__bg-wrapper
+        .container
+            +r(1199)
+                position: static
+    &__bg-container
+         &::after
+            content: ''
+            position: absolute
+            top: 240px
+            z-index: -1
+            left: 40px
+            width: 10000%
+            height: 1300px
+            display: block
+            background: #F9F9F9
+            +r(1599)
+                top: 300px
+                height: 90vw
+            +r(1199)
+                height: 87%
+                top: auto
+                width: 100%
+                left: 0
+                bottom: 0
+    &__head-wrap
+        overflow: hidden
+        +r(767)
+            .container
+                padding: 0
+    &__head
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+        +r(1699)
+            flex-direction: column
+    &__title
+        margin-right: 26px
+        margin-bottom: 0
+        margin-top: 75px
+        +r(1699)
+            margin-top: 0
+            margin-right: 0
+            margin-bottom: 50px
+        +r(767)
+            margin-bottom: 30px
+            padding-left: 22px
+    &__slider
+        position: relative
+        width: 100%
+        max-width: 1320px
+        padding: 0 70px
+        +r(1699)
+            max-width: none
+        +r(767)
+            padding: 0
+        .swiper-slide
+            +r(374)
+                width: 260px!important
+            +r(767)
+                width: 312px!important
+        .swiper-container
+            width: 100%
+            padding: 0 20px
+            padding-bottom: 140px
+            +r(767)
+                padding-left: 22px
+                padding-right: 0
+        .swiper-button-prev
+            left: 0
+        .swiper-button-prev,
+        .swiper-button-next
+            top: 38%
+            width: 60px
+            height: 60px
+            background: $white
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.06)
+            border-radius: 10px
+            +trs()
+            &::after
+                content: ''
+                width: 32px
+                height: 24px
+                display: block
+                background-image: url(../img/arrow.svg)
+                background-repeat: no-repeat
+                background-size: cover
+            &:hover,
+            &:focus
+                box-shadow: 0px 10px 20px 13px rgba(0,0,0,0.06)
+            +r(767)
+                display: none
+        .swiper-button-next
+            right: 0
+            &::after
+                transform: rotate(180deg)
+        .swiper-pagination
+            bottom: 60px
+            width: 100%
+            left: 0
+        .swiper-pagination-bullet
+            width: 14px
+            height: 14px
+            opacity: 1
+            background: #C4C4C4
+            margin: 0 15px
+            +trs()
+            &-active
+                background: $text
+            &:hover,
+            &:focus
+                background: $text
+                outline: none
+            +r(767)
+                margin: 0 7px
+                width: 10px
+                height: 10px
+    &__slide-inner
+        width: 100%
+        padding-top: 73px
+        padding-bottom: 85px
+        padding-right: 40px
+        padding-left: 50px
+        background: $white
+        box-shadow: 0px 30px 18px rgba(0,0,0,0.06)
+        border-radius: 20px
+        +r(767)
+            padding-top: 50px
+            padding-bottom: 66px
+            padding-left: 36px
+            padding-right: 36px
+            box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.06)
+    &__slide-head
+        display: flex
+        align-items: center
+        margin-bottom: 63px
+        +r(767)
+            margin-bottom: 53px
+    &__slide-img
+        max-width: 70px
+        margin-right: 20px
+        +r(767)
+            max-width: 60px
+    &__slide-title
+        font-size: 36px
+        font-weight: 400
+        +r(767)
+            font-size: 30px
+    &__slide-item
+        position: relative
+        display: block
+        margin-bottom: 30px
+        padding-left: 30px
+        font-size: 18px
+        font-weight: 300
+        line-height: 1.4em
+        &:last-child
+            margin-bottom: 0
+        &::before
+            content: ''
+            position: absolute
+            left: 0
+            top: 6px
+            width: 8px
+            height: 8px
+            display: block
+            border-radius: 50%
+            background: $blue
+        +r(767)
+            padding-left: 20px
+            font-size: 16px
+    &__slide-text
+        display: block
+        font-size: inherit
+        font-weight: inherit
+        font-family: inherit
+        line-height: inherit
+    &__items-wrap
+        padding-left: 130px
+        padding-right: 90px
+        .section-head
+            margin-bottom: 73px
+            +r(1299)
+                margin-bottom: 30px
+        +r(1299)
+            padding: 0
+    &__items
+        display: flex
+        flex-wrap: wrap
+        align-items: flex-start
+        margin: -7px -36px
+        +r(1023)
+            margin: -7px -15px
+        +r(767)
+            margin: -15px 0
+    &__item
+        width: 50%
+        padding: 7px 36px
+        display: flex
+        align-items: flex-start
+        +r(1023)
+            padding: 7px 15px
+        +r(767)
+            padding: 15px 0
+            width: 100%
+            justify-content: center
+    &__numb
+        display: block
+        margin-right: 30px
+        margin-left: 43px
+        font-size: 50px
+        font-weight: 400
+        color: $blue
+        +r(1299)
+            font-size: 44px
+        +r(767)
+            margin-right: 20px
+            margin-left: 0
+    &__text
+        max-width: 490px
+        margin-top: 19px
+        font-size: 24px
+        line-height: 1.4em
+        font-weight: 400
+        +r(1299)
+            font-size: 18px
+        +r(767)
+            margin-top: 9px
+    &__bg-wrap
+        position: absolute
+        left: 0
+        top: 0
+        height: 500px
+        width: 49.3%
+        display: block
+        +r(1799)
+            width: 46%
+            height: auto
+            padding-bottom: 32%
+        +r(767)
+            width: 94.6%
+            height: auto
+            padding-bottom: 51%
+    &__bottom-item
+        width: 100%
+        flex-grow: 1
+        padding-left: 61%
+        +r(1799)
+            padding-left: 52%
+        +r(767)
+            padding-left: 0
+            width: 100%
+            padding-top: 77%
+    &__bottom-title
+        margin-bottom: 20px
+        max-width: 360px
+        line-height: 1.2em
+        font-size: 30px
+        font-weight: 700
+        +r(767)
+            font-size: 24px
+            margin-bottom: 12px
+    &__subtext
+        line-height: 1.3em
+        margin-bottom: 66px
+        font-size: 18px
+        font-weight: 300
+        +r(767)
+            margin-bottom: 83px
+    &__img
+        object-position: left
+    &__bottom-list
+        display: flex
+        flex-wrap: wrap
+        margin: -12px
+    &__item-info
+        display: block
+        width: 50%
+        padding: 12px
+    &__info-list-text
+        position: relative
+        display: block
+        font-size: 20px
+        font-weight: 700
+        padding-left: 22px
+        +r(767) 
+            font-size: 18px
+        &::after
+            position: absolute
+            content: ''
+            top: 7px
+            left: 0
+            width: 8px
+            height: 8px
+            display: block
+            border-radius: 50%
+            background: $blue
+    &__bottom-wrap
+        padding-top: 121px
+        +r(767)
+            padding-top: 54px
+    &__bottom-inner
+        position: relative
