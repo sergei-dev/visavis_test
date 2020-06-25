@@ -10062,19 +10062,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_initMenu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/initMenu */ "./src/js/modules/initMenu.js");
 /* harmony import */ var _modules_initSwiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/initSwiper */ "./src/js/modules/initSwiper.js");
 /* harmony import */ var _modules_contactForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/contactForm */ "./src/js/modules/contactForm.js");
+/* harmony import */ var _modules_progressInit__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/progressInit */ "./src/js/modules/progressInit.js");
+
 
 
 
 
 
 document.addEventListener('DOMContentLoaded', function () {
-  var preloader = document.querySelector('.js-preloader');
-
-  if (preloader) {
-    preloader.classList.add('hide');
-    preloader.classList.remove('show');
-  }
-
+  var $preloader = document.querySelector('.js-preloader');
+  $preloader.classList.add('hide');
+  $preloader.classList.remove('show');
   inline_svg__WEBPACK_IMPORTED_MODULE_0___default.a.init({
     svgSelector: 'img.svg',
     // the class attached to all images that should be inlined
@@ -10089,6 +10087,43 @@ document.addEventListener('DOMContentLoaded', function () {
   _modules_contactForm__WEBPACK_IMPORTED_MODULE_4__["default"].init(); // lines animation init
 
   new wow_js__WEBPACK_IMPORTED_MODULE_1___default.a().init();
+  Object(_modules_progressInit__WEBPACK_IMPORTED_MODULE_5__["default"])();
+});
+
+/***/ }),
+
+/***/ "./src/js/modules/components/progressItem.js":
+/*!***************************************************!*\
+  !*** ./src/js/modules/components/progressItem.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['progress'],
+  template: "\n            <div class=\"progress__item\">\n                <div class=\"progress__head\">\n                    <div class=\"progress__img-wrap\">\n                        <img :src=\"progress.avatar\" alt class=\"progress__img\" />\n                    </div>\n                    <h3 class=\"progress__title\">{{ progress.title }}</h3>\n                </div>\n                <p class=\"progress__text\">{{ progress.text }}</p>\n                <ul class=\"progress__list\">\n                    <li class=\"progress__list-item\" v-for=\"item in progress.sublist\">{{ item }}</li>\n                </ul>\n            </div>"
+});
+
+/***/ }),
+
+/***/ "./src/js/modules/components/progressList.js":
+/*!***************************************************!*\
+  !*** ./src/js/modules/components/progressList.js ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _progressItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./progressItem */ "./src/js/modules/components/progressItem.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  template: '<div class="progress__wrap"><slot></slot></div>',
+  components: {
+    'progress-item': _progressItem__WEBPACK_IMPORTED_MODULE_0__["default"]
+  }
 });
 
 /***/ }),
@@ -10145,14 +10180,14 @@ var initMenu = /*#__PURE__*/function () {
   function initMenu() {
     _classCallCheck(this, initMenu);
 
-    this.headerBurger = document.querySelector('.js-burger');
-    this.headerMenu = document.querySelector('.js-menu');
+    this.$headerBurger = document.querySelector('.js-burger');
+    this.$headerMenu = document.querySelector('.js-menu');
   }
 
   _createClass(initMenu, [{
     key: "init",
     value: function init() {
-      if (!this.headerBurger) {
+      if (!this.$headerBurger) {
         return;
       }
 
@@ -10163,17 +10198,17 @@ var initMenu = /*#__PURE__*/function () {
     value: function toggleMenu() {
       var _this = this;
 
-      this.headerBurger.addEventListener('click', function () {
-        if (_this.headerBurger.classList.contains('open')) {
-          _this.headerBurger.classList.remove('open');
+      this.$headerBurger.addEventListener('click', function () {
+        if (_this.$headerBurger.classList.contains('open')) {
+          _this.$headerBurger.classList.remove('open');
 
-          _this.headerMenu.classList.remove('open');
+          _this.$headerMenu.classList.remove('open');
 
           document.body.classList.remove('body-overflow');
         } else {
-          _this.headerBurger.classList.add('open');
+          _this.$headerBurger.classList.add('open');
 
-          _this.headerMenu.classList.add('open');
+          _this.$headerMenu.classList.add('open');
 
           document.body.classList.add('body-overflow');
         }
@@ -10265,6 +10300,94 @@ var initSwiper = /*#__PURE__*/function () {
 
 var aboutSlider = new initSwiper('.js-about-slider', '.about__pagination', '.about__prev', '.about__next');
 /* harmony default export */ __webpack_exports__["default"] = (aboutSlider);
+
+/***/ }),
+
+/***/ "./src/js/modules/progressInit.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/progressInit.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return progressInit; });
+/* harmony import */ var _components_progressList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/progressList */ "./src/js/modules/components/progressList.js");
+/* harmony import */ var _components_progressItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/progressItem */ "./src/js/modules/components/progressItem.js");
+
+
+function progressInit() {
+  new Vue({
+    el: '#app',
+    data: {
+      progressItems: [{
+        id: 0,
+        avatar: '/img/circle.svg',
+        title: '0 Lorem Ipsum is simply dummy text',
+        text: "It is a long established fact that a reader will be distracted by the\n                    readable content of a page when looking at its layout.",
+        sublist: ['Lorem Ipsum has been the industry', 'Standard dummy text ever since', 'But also the leap into electronic typesetting']
+      }, {
+        id: 1,
+        avatar: '/img/circle.svg',
+        title: '1 Lorem Ipsum is simply dummy text',
+        text: "It is a long established fact that a reader will be distracted by the\n                    readable content of a page when looking at its layout.",
+        sublist: ['Lorem Ipsum has been the industry', 'Standard dummy text ever since', 'But also the leap into electronic typesetting', 'It was popularised in the 1960s']
+      }, {
+        id: 2,
+        avatar: '/img/circle.svg',
+        title: '2 Lorem Ipsum is simply dummy text',
+        text: "It is a long established fact that a reader will be distracted by the\n                    readable content of a page when looking at its layout.",
+        sublist: ['Lorem Ipsum has been the industry', 'Standard dummy text ever since', 'But also the leap into electronic typesetting']
+      }, {
+        id: 3,
+        avatar: '/img/circle.svg',
+        title: '3 Lorem Ipsum is simply dummy text',
+        text: "It is a long established fact that a reader will be distracted by the\n                    readable content of a page when looking at its layout.",
+        sublist: ['Lorem Ipsum has been the industry', 'Standard dummy text ever since', 'But also the leap into electronic typesetting']
+      }, {
+        id: 4,
+        avatar: '/img/circle.svg',
+        title: '4 Lorem Ipsum is simply dummy text',
+        text: "It is a long established fact that a reader will be distracted by the\n                    readable content of a page when looking at its layout.",
+        sublist: ['Lorem Ipsum has been the industry', 'Standard dummy text ever since', 'But also the leap into electronic typesetting']
+      }]
+    },
+    mounted: function mounted() {
+      var _this = this;
+
+      this.$nextTick(function () {
+        _this.randomItems();
+
+        var loaderHtml = "\n                    <div class=\"progress__anim-rotate\">\n                        <img src=\"/img/circle-rotate.svg\" alt=\"\" />\n                    </div>";
+        document.querySelectorAll('.progress__item')[0].querySelector('.progress__img-wrap').insertAdjacentHTML('beforeend', loaderHtml);
+      });
+    },
+    methods: {
+      randomItems: function randomItems() {
+        var blocks = null;
+        var items = document.querySelectorAll('.progress__item');
+
+        for (var i = 0; i < items.length; i++) {
+          blocks = document.createElement("div");
+          var random = Math.floor(Math.random() * items.length),
+              index = items[i],
+              indexParent = index.parentNode,
+              randomTwo = items[random],
+              randomParent = randomTwo.parentNode;
+          indexParent.insertBefore(blocks, index);
+          randomParent.insertBefore(index, randomTwo);
+          indexParent.insertBefore(randomTwo, blocks);
+          blocks.remove();
+        }
+      }
+    },
+    components: {
+      'progress-list': _components_progressList__WEBPACK_IMPORTED_MODULE_0__["default"],
+      'progress-item': _components_progressItem__WEBPACK_IMPORTED_MODULE_1__["default"]
+    }
+  });
+}
 
 /***/ }),
 

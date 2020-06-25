@@ -16,9 +16,9 @@
 
 <body>
 
-	<div class="wrapper">
+	<div class="wrapper" id="app">
 		<!-- start content -->
-		
+
 		<!-- start header -->
 		<header class="header">
 			<div class="container">
@@ -390,9 +390,9 @@
 			</div>
 		</section>
 		<!-- end about -->
-		
+
 		<!-- start steps -->
-		<section class="steps js-steps">
+		<section class="steps">
 			<div class="container">
 				<div class="section-head steps__head">
 					<h2 class="section-head__title steps__title">Lorem Ipsum</h2>
@@ -400,7 +400,7 @@
 				<div class="steps__wrap">
 					<div class="steps__item">
 						<div class="steps__icon-wrap">
-							<img src="/img/id-card.svg" alt="" class="svg">
+							<img src="/img/id-card.svg" alt="">
 						</div>
 						<div class="steps__line-wrap">
 							<div class="steps__circle steps__circle--start"></div>
@@ -412,7 +412,7 @@
 					</div>
 					<div class="steps__item">
 						<div class="steps__icon-wrap">
-							<img src="/img/phone.svg" alt="" class="svg">
+							<img src="/img/phone.svg" alt="">
 						</div>
 						<div class="steps__line-wrap">
 							<div class="steps__circle"></div>
@@ -425,7 +425,7 @@
 					</div>
 					<div class="steps__item">
 						<div class="steps__icon-wrap">
-							<img src="/img/laptop.svg" alt="" class="svg">
+							<img src="/img/laptop.svg" alt="">
 						</div>
 						<div class="steps__line-wrap">
 							<div class="steps__circle"></div>
@@ -438,7 +438,7 @@
 					</div>
 					<div class="steps__item">
 						<div class="steps__icon-wrap">
-							<img src="/img/chat.svg" alt="" class="svg">
+							<img src="/img/chat.svg" alt="">
 						</div>
 						<div class="steps__line-wrap">
 							<div class="steps__circle"></div>
@@ -451,7 +451,7 @@
 					</div>
 					<div class="steps__item">
 						<div class="steps__icon-wrap">
-							<img src="/img/line-chart.svg" alt="" class="svg">
+							<img src="/img/line-chart.svg" alt="">
 						</div>
 						<div class="steps__line-wrap">
 							<div class="steps__circle"></div>
@@ -470,99 +470,39 @@
 		<!-- start progress -->
 		<section class="progress">
 			<div class="container">
-				<div class="progress__wrap">
-					<div class="progress__item">
-						<div class="progress__img-wrap">
-							<img src="/img/circle.svg" alt="" class="progress__img">
-						</div>
-						<h3 class="progress__title">Lorem Ipsum is simply dummy text</h3>
-						<p class="progress__text">It is a long established fact that a reader will be distracted by the
-							readable content of a page when looking at its layout.</p>
-						<ul class="progress__list">
-							<li class="progress__list-item">Lorem Ipsum has been the industry's</li>
-							<li class="progress__list-item">Standard dummy text ever since</li>
-							<li class="progress__list-item">But also the leap into electronic typesetting</li>
-						</ul>
-					</div>
-					<div class="progress__item">
-						<div class="progress__img-wrap">
-							<img src="/img/circle.svg" alt="" class="progress__img">
-						</div>
-						<h3 class="progress__title">Lorem Ipsum is simply dummy text</h3>
-						<p class="progress__text">It is a long established fact that a reader will be distracted by the
-							readable content of a page when looking at its layout.</p>
-						<ul class="progress__list">
-							<li class="progress__list-item">Lorem Ipsum has been the industry's</li>
-							<li class="progress__list-item">Standard dummy text ever since</li>
-							<li class="progress__list-item">But also the leap into electronic typesetting</li>
-							<li class="progress__list-item">It was popularised in the 1960s</li>
-						</ul>
-					</div>
-					<div class="progress__item">
-						<div class="progress__img-wrap">
-							<img src="/img/circle.svg" alt="" class="progress__img">
-						</div>
-						<h3 class="progress__title">Lorem Ipsum is simply dummy text</h3>
-						<p class="progress__text">It is a long established fact that a reader will be distracted by the
-							readable content of a page when looking at its layout.</p>
-						<ul class="progress__list">
-							<li class="progress__list-item">Lorem Ipsum has been the industry's</li>
-							<li class="progress__list-item">But also the leap into electronic typesetting</li>
-						</ul>
-					</div>
-					<div class="progress__item">
-						<div class="progress__img-wrap">
-							<img src="/img/circle.svg" alt="" class="progress__img">
-						</div>
-						<h3 class="progress__title">Lorem Ipsum is simply dummy text</h3>
-						<p class="progress__text">It is a long established fact that a reader will be distracted by the
-							readable content of a page when looking at its layout.</p>
-						<ul class="progress__list">
-							<li class="progress__list-item">Lorem Ipsum has been the industry's</li>
-							<li class="progress__list-item">Standard dummy text ever since</li>
-							<li class="progress__list-item">But also the leap into electronic typesetting</li>
-						</ul>
-					</div>
-					<div class="progress__item">
-						<div class="progress__img-wrap">
-							<img src="/img/circle.svg" alt="" class="progress__img">
-						</div>
-						<h3 class="progress__title">Lorem Ipsum is simply dummy text</h3>
-						<p class="progress__text">It is a long established fact that a reader will be distracted by the
-							readable content of a page when looking at its layout.</p>
-						<ul class="progress__list">
-							<li class="progress__list-item">Lorem Ipsum has been the industry's</li>
-							<li class="progress__list-item">Standard dummy text ever since</li>
-							<li class="progress__list-item">But also the leap into electronic typesetting</li>
-						</ul>
-					</div>
-				</div>
+				<progress-list>
+					<progress-item v-for="item in progressItems" :key="item.id" ref="progressItems" :progress="item"></progress-item>
+				</progress-list>
 			</div>
-			<div class="progress__bottom">
-				<div class="progress__bottom-items">
-					<div class="progress__bottom-item">
-						<div class="progress__avatar-wrap">
-							<img src="img/avatar.svg" class="progress__avatar" alt="">
+			<div class="progress__bottom-wrap">
+				<div class="container progress__bottom-container">
+					<div class="progress__bottom">
+						<div class="progress__bottom-items">
+							<div class="progress__bottom-item">
+								<div class="progress__avatar-wrap">
+									<img src="/img/avatar.svg" class="progress__avatar" alt="">
+								</div>
+								<p class="progress__bottom-text">Lorem Ipsum is simply</p>
+							</div>
+							<div class="progress__bottom-item">
+								<div class="progress__avatar-wrap">
+									<img src="/img/avatar.svg" class="progress__avatar" alt="">
+								</div>
+								<p class="progress__bottom-text">Lorem Ipsum is simply</p>
+							</div>
+							<div class="progress__bottom-item">
+								<div class="progress__avatar-wrap">
+									<img src="/img/avatar.svg" class="progress__avatar" alt="">
+								</div>
+								<p class="progress__bottom-text">Lorem Ipsum is simply</p>
+							</div>
 						</div>
-						<p class="progress__bottom-text">Lorem Ipsum is simply</p>
-					</div>
-					<div class="progress__bottom-item">
-						<div class="progress__avatar-wrap">
-							<img src="img/avatar.svg" class="progress__avatar" alt="">
-						</div>
-						<p class="progress__bottom-text">Lorem Ipsum is simply</p>
-					</div>
-					<div class="progress__bottom-item">
-						<div class="progress__avatar-wrap">
-							<img src="img/avatar.svg" class="progress__avatar" alt="">
-						</div>
-						<p class="progress__bottom-text">Lorem Ipsum is simply</p>
 					</div>
 				</div>
 			</div>
 		</section>
 		<!-- end progress -->
-		
+
 		<!-- start contacts -->
 		<section class="contacts">
 			<div class="container">
@@ -619,7 +559,7 @@
 			</div>
 		</section>
 		<!-- end contacts -->
-		
+
 		<!-- start footer -->
 		<footer class="footer">
 			<div class="container">
@@ -708,7 +648,7 @@
 		<div class="preloader__circle"></div>
 	</div>
 
-
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="/js/main.js"></script>
 
 </body>

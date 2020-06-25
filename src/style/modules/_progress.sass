@@ -1,1 +1,153 @@
 .progress
+    position: relative
+    padding-top: 160px
+    padding-bottom: 284px
+    background: $section-bg
+    +r(1023)
+        padding-top: 80px
+        padding-bottom: 160px
+    +r(767)
+        padding-bottom: 265px
+    &__wrap
+        display: flex
+        flex-wrap: wrap
+        margin: -65px -80px
+        +r(1199)
+            margin: -30px
+        +r(767)
+            margin: -20px 0
+    &__item
+        width: calc(100% / 3)
+        padding: 65px 80px
+        +r(1199)
+            padding: 30px
+        +r(767)
+            width: 100%
+            padding: 20px 0
+    &__img-wrap
+        position: relative
+        max-width: 70px
+        width: 100%
+        margin-bottom: 30px
+        +r(767)
+            max-width: 68px
+            margin-right: 20px
+            margin-bottom: 0
+    &__head
+        margin-bottom: 20px
+        +r(767)
+            display: flex
+            align-items: center
+            margin-bottom: 25px
+    &__title
+        line-height: 1.2em
+        max-width: 300px
+        font-size: 28px
+        font-weight: 700
+        +r(767)
+            font-size: 22px
+    &__text
+        margin-bottom: 20px
+        line-height: 1.4em
+        font-size: 18px
+        font-weight: 300
+        +r(767)
+            font-size: 16px
+    &__list-item
+        position: relative
+        padding-left: 20px
+        display: block
+        margin-bottom: 16px
+        font-size: 18px
+        font-weight: 300
+        +r(767)
+            margin-bottom: 10px
+        &:last-child
+            margin-bottom: 0
+        &::after
+            content: ''
+            position: absolute
+            left: 0
+            top: 5px
+            width: 6px
+            height: 6px
+            border-radius: 50%
+            background: $blue
+    &__anim-rotate
+        position: absolute
+        top: 50%
+        left: 50%
+        z-index: 2
+        width: 130px
+        height: 130px
+        animation: animRotate 1s linear infinite
+        transform: translate(-50%, -50%)
+        +r(767)
+            display: none
+    &__bottom-wrap
+        position: absolute
+        width: 100%
+        left: 0
+        bottom: 0
+        transform: translateY(50%)
+    &__bottom
+        position: relative
+        padding: 90px 0
+        padding-left: 130px
+        +r(1299)
+            padding-left: 50px
+        +r(1023)
+            padding-left: 40px
+            padding-top: 50px
+            padding-bottom: 50px
+        +r(767)
+            padding: 60px 0
+            padding-left: 40px
+        &::after
+            content: ''
+            position: absolute
+            left: 0
+            top: 0
+            z-index: 
+            right: 0
+            width: 10000%
+            height: 100%
+            background: $blue
+            border-radius: 30px 0px 0px 30px
+    &__bottom-items
+        position: relative
+        z-index: 3
+        display: flex
+        margin: 0 -30px
+        +r(767)
+            flex-wrap: wrap
+            margin: -25px 0
+    &__bottom-item
+        width: calc(100% / 3)
+        padding: 0 30px
+        display: flex
+        align-items: center
+        +r(767)
+            padding: 25px 0
+            width: 100%
+    &__avatar-wrap
+        margin-right: 30px
+        max-width: 100px
+        width: 100%
+        +r(1023)    
+            max-width: 67px
+            margin-right: 21px
+    &__bottom-text
+        font-size: 32px
+        font-weight: 400
+        color: $white
+        max-width: 170px
+        font-family: 'Vodafone', sans-serif
+        +r(1023)
+            font-size: 26px
+
+@keyframes animRotate
+    0%
+        transform: translate(-50%, -50%) rotate(0)
+    100%
+        transform: translate(-50%, -50%) rotate(360deg)
