@@ -1,3 +1,69 @@
 .contacts
     padding-top: 300px
     padding-bottom: 160px
+    +r(1023)
+        padding-top: 279px
+        padding-bottom: 80px
+    &__title
+        max-width: 480px
+        margin-bottom: 80px
+        line-height: 1em
+        +r(767)
+            margin-bottom: 40px
+    &__wrap
+        display: flex
+        justify-content: space-between
+        +r(1023)
+            flex-wrap: wrap
+    &__wrap-content
+        padding-left: 130px
+        +r(1299)
+            padding-left: 0
+    &__item
+        width: 100%
+        &--form
+            max-width: 750px
+            margin-right: 160px
+            flex-shrink: 0
+            +r(1499)
+                flex-shrink: 1
+            +r(1299)
+                margin-right: 50px
+            +r(1023)
+                margin-right: 0
+                max-width: none
+                margin-bottom: 80px
+        &--info
+            max-width: 360px
+    &__subtitle
+        margin-bottom: 42px
+        max-width: 312px
+        font-size: 30px
+        font-weight: 700
+        +r(767)
+            font-size: 24px
+            margin-bottom: 20px
+    &__links
+        margin-bottom: 66px
+        +r(767)
+            margin-bottom: 40px
+    &__link
+        margin-bottom: 5px
+        display: inline-block
+        text-decoration: underline
+        font-size: 24px
+        color: $blue
+        font-weight: 700
+        &:last-child
+            margin-bottom: 0
+        +r(767)
+            font-size: 20px
+    &__descr
+        max-width: 360px
+        font-size: 16px
+        font-weight: 300
+        line-height: 1.1em
+        +r(1023)
+            max-width: none
+        +r(767)
+            font-size: 12px

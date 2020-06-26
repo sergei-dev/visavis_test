@@ -1,0 +1,161 @@
+.site-form
+    margin: -19px -15px
+    display: flex
+    flex-wrap: wrap
+    +r(767)
+        margin: -12px 0
+    &__item
+        width: 50%
+        padding: 19px 15px
+        +r(767)
+            width: 100%
+            padding: 12px 0
+        &--full,
+        &--range
+            width: 100%
+        &--range
+            +r(767)
+                padding-bottom: 55px
+            .vue-slide-bar-component
+                padding-top: 75px!important
+                padding-bottom: 50px
+                +r(767)
+                    padding-top: 100px!important
+                    padding-bottom: 0
+            .vue-slide-bar-separate-text
+                font-size: 16px
+                font-weight: 400
+                color: #B4B4B4
+                top: 27px!important
+                +r(767)
+                    display: none
+            .vue-slide-bar-tooltip-container
+                top: -38px!important
+            .vue-slide-bar-separate
+                width: 4px!important
+                height: 10px!important
+                border-radius: 20px
+                font-family: 'Roboto', sans-serif!important
+                background: #B4B4B4
+                &:first-child,
+                &:last-child
+                    .vue-slide-bar-separate-text
+                        display: block
+            .vue-slide-bar-range
+                margin-top: -7px
+                padding: 0 60px!important
+                +r(767)
+                    padding: 0 30px!important
+            .vue-slide-bar
+                border-radius: 20px!important
+                background: #B4B4B4!important
+    &__inner
+        position: relative
+    &__range-tooltip
+        position: absolute
+        display: inline-block
+        padding: 0 16px
+        font-size: 16px
+        color: #4a4d4e
+        font-weight: 400
+        background-color: $white
+        white-space: nowrap
+        height: 36px
+        line-height: 34px
+        border: 2px solid #0093e6
+        border-radius: 20px
+        &::after
+            content: ''
+            position: absolute
+            left: 50%
+            z-index: 3
+            top: 40px
+            width: 10px
+            height: 20px
+            background: $blue
+            border-radius: 20px
+            transform: translateX(-50%)
+    &__input
+        display: block
+        width: 100%
+        height: 38px
+        padding-left: 2px
+        line-height: 38px
+        border: 0
+        border-bottom: 1px solid $text
+        +trs()
+        &:focus
+            border-bottom-color: $blue
+            outline: none
+    &__input-text
+        position: absolute
+        bottom: 11px
+        left: 2px
+        display: block
+        font-size: 18px
+        font-weight: 400
+        user-select: none
+        pointer-events: none
+        color: #B4B4B4
+    &__star
+        color: $blue
+        font-size: inherit
+        font-weight: inherit
+    &__error
+        display: none
+        position: absolute
+        left: 0
+        z-index: 3
+        top: calc(100% + 10px)
+        font-size: 12px
+        color: #B4B4B4
+        font-weight: 400
+        +r(767)
+            top: calc(100% + 15px)
+    &__bottom
+        display: flex
+        align-items: center
+        justify-content: space-between
+    &__check-wrap
+        margin-right: 30px
+        +r(767)
+            margin-right: 10px
+    &__check-flex
+        display: flex
+        align-items: flex-start
+        cursor: pointer
+        user-select: none
+    &__label-text
+        display: block
+        font-size: 16px
+        font-weight: 400
+        color: $text
+        +r(767)
+            font-size: 14px
+    &__indicator
+        position: relative
+        display: block
+        margin-top: 3px
+        flex-shrink: 0
+        margin-right: 7px
+        width: 10px
+        height: 10px
+        border: 1px solid #4A4D4E
+        border-radius: 50%
+        &::after
+            content: ''
+            position: absolute
+            top: 50%
+            left: 50%
+            width: 6px
+            height: 6px
+            background: $blue
+            border-radius: 50%
+            +trs()
+            transform: translate(-50%, -50%) scale(0)
+    input[type="radio"],
+    input[type="checkbox"]
+        &:checked
+            ~ .site-form__indicator
+                &::after
+                    transform: translate(-50%, -50%) scale(1)

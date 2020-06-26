@@ -1,2 +1,124 @@
 .footer
+    padding: 108px 0
+    background: #333333
+    +r(767)
+        padding-top: 59px
+        padding-bottom: 30px
+    &__wrap
+        display: flex
+        justify-content: space-between
+        margin: 0 -30px
+        +r(1023)
+            margin: 0 -10px
+        +r(767)
+            margin: 0
+            flex-wrap: wrap
+    &__item
+        width: calc(100% / 4)
+        padding: 0 30px
+        display: flex
+        flex-direction: column
+        +r(1023)
+            padding: 0 10px
+        +r(767)
+            width: 100%
+            padding: 0
+            align-items: center
+    &__social
+        margin-bottom: 20px
+        +r(767)
+            margin-bottom: 56px
+    &__social-list
+        display: flex
+        align-items: center
+        flex-wrap: wrap
+        margin: -23px
+    &__icon
+        +trs()
+    &__social-item
+        max-width: 76px
+        display: block
+        padding: 23px
+        &:last-child
+            margin-right: 0
+        &:hover
+            .footer__icon
+                transform: translateY(-10px)
+    &__social-link
+        display: block
+    &__copy
+        margin-top: auto
+        font-size: 18px
+        color: $white
+        font-weight: 400
+        +r(767)
+            display: none
+        &--mob
+            display: none
+            +r(767)
+                display: block
+                margin-top: 63px
+                text-align: center
+                width: 100%
+    &__menu
+        +r(767)
+            width: 100%
+        &--sub
+            +r(767)
+                 max-height: 0
+                 overflow: hidden
+                 +trs()
+            &.active
+                margin-top: 36px
+                margin-bottom: 30px
+    &__menu-item
+        display: block
+        margin-bottom: 36px
+        &:last-child
+            margin-bottom: 0
+        +r(767)
+            position: relative
+            width: 100%
+    &__menu-link
+        font-size: 24px
+        font-weight: 400
+        color: $white
+        display: inline
+        &--top
+            margin-bottom: 36px
+            display: inline-block
+            +r(767)
+                display: block
+                padding-top: 21px
+                margin-bottom: 0
+                padding-bottom: 15px
+                border-bottom: 1px solid $white
+                font-size: 24px
+    &__toggle-btn
+        position: absolute
+        top: 0
+        right: 0
+        z-index: 5
+        display: block
+        width: 20px
+        height: 61px
+        +trs()
+        &::before
+            position: absolute
+            content: ''
+            left: 0
+            width: 20px
+            bottom: 20px
+            height: 10px
+            display: none
+            background-image: url('../img/arrow-toggle.svg')
+            background-repeat: no-repeat
+            background-position: center center
+            background-size: cover
+            +trs()
+            +r(767)
+                display: block
+        &.active
+            &::before
+                transform: rotate(180deg)
     

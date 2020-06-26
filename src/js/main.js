@@ -1,9 +1,9 @@
-import inlineSVG from 'inline-svg'
 import WOW from 'wow.js';
-import initNav from './modules/initMenu';
 import initAboutSlider from './modules/initSwiper';
+import toggleFooterMenu from './modules/toggleMenu';
+import scrollLinks from './modules/scrollLinks';
+import vueInit from './modules/vueInit';
 import validationContactsForm from './modules/contactForm';
-import progressInit from './modules/progressInit';
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -12,23 +12,42 @@ document.addEventListener('DOMContentLoaded', function () {
     $preloader.classList.remove('show');
 
 
-    inlineSVG.init({
-        svgSelector: 'img.svg', // the class attached to all images that should be inlined
-        initClass: 'js-inlinesvg', // class added to <html>
-    });
+    const toggleMenu = () => {
+        const $headerBurger = document.querySelector('.js-burger');
+        const $headerMenu = document.querySelector('.js-menu');
+        $headerBurger.addEventListener('click', function () {
+            if ($headerBurger.classList.contains('open')) {
+                $headerBurger.classList.remove('open');
+                $headerMenu.classList.remove('open');
+                document.body.classList.remove('body-overflow');
+            }
 
-    // burger toggle menu
-    initNav.init();
+            else {
+                $headerBurger.classList.add('open');
+                $headerMenu.classList.add('open');
+                document.body.classList.add('body-overflow');
+            }
+        });
+    }
 
     // init about swiper slider
     initAboutSlider.init();
 
     // validation contacts form
-    validationContactsForm.init();
+    // validationContactsForm.init();
 
     // lines animation init
     new WOW().init();
 
-    progressInit();
+    vueInit();
+
+    toggleFooterMenu();
+
+    toggleMenu();
+
+    scrollLinks();
+
+    validationContactsForm.init();
+
 
 });

@@ -1,10 +1,13 @@
 import progressList from './components/progressList';
 import progressItem from './components/progressItem';
+import VueSlideBar from 'vue-slide-bar'
 
 export default function progressInit() {
 
+    Vue.component('vue-range', VueSlideBar);
+
     new Vue({
-        el: '#app',
+        el: '#progress',
         data: {
             progressItems: [
                 {
@@ -68,7 +71,7 @@ export default function progressInit() {
                         'But also the leap into electronic typesetting'
                     ]
                 }
-            ]
+            ],
         },
         mounted() {
             this.$nextTick(() => {
@@ -96,11 +99,57 @@ export default function progressInit() {
                     indexParent.insertBefore(randomTwo, blocks);
                     blocks.remove();
                 }
-            }
+            },
         },
         components: {
             'progress-list': progressList,
             'progress-item': progressItem,
         },
+    })
+
+    new Vue({
+        el: '#vue-range',
+        data: {
+            slider: {
+                value: 3000,
+                data: [
+                    500,
+                    1500,
+                    2500,
+                    3500,
+                    4500,
+                    5500,
+                    6500
+                ],
+                range: [
+                    {
+                        label: '500 грн'
+                    },
+                    {
+                        label: '1500 грн',
+                    },
+                    {
+                        label: '2500 грн'
+                    },
+                    {
+                        label: '3500 грн',
+                    },
+                    {
+                        label: '4500 грн'
+                    },
+                    {
+                        label: '5500 грн',
+                    },
+                    {
+                        label: '6500 грн'
+                    }
+                ],
+            },
+        },
+        methods: {
+            callbackRange(val) {
+              this.slider.value = val;
+            }
+          }
     })
 }
